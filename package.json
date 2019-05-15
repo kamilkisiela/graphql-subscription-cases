@@ -1,0 +1,15 @@
+{
+  "name": "gql-sub",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon src/index.js -w src/"
+  },
+  "dependencies": {
+    "apollo-server": "^2.5.0",
+    "graphql": "^14.3.0",
+    "lodash": "^4.17.11",
+    "nodemon": "^1.19.0"
+  }
+}
