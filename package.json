@@ -4,12 +4,16 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon src/index.js -w src/"
+    "start": "ts-node-dev src/index.ts"
   },
   "dependencies": {
+    "@types/graphql": "^14.2.0",
+    "@types/lodash": "^4.14.129",
     "apollo-server": "^2.5.0",
     "graphql": "^14.3.0",
     "lodash": "^4.17.11",
-    "nodemon": "^1.19.0"
+    "ts-node": "^8.1.0",
+    "ts-node-dev": "^1.0.0-pre.39",
+    "typescript": "^3.4.5"
   }
 }

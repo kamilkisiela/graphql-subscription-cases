@@ -1,5 +1,5 @@
-const { gql } = require('apollo-server');
-const pubsub = require('./pubsub');
+import { gql } from 'apollo-server';
+import pubsub from './pubsub';
 
 const EVENT = 'Hi';
 
@@ -19,7 +19,7 @@ const typeDefs = gql`
 
 const resolvers = {
   Mutation: {
-    hi: (_, { name }) => {
+    hi: (_: any, { name }: { name: string }) => {
       const message = `Hi ${name}`;
 
       // Emits just a string
@@ -31,10 +31,10 @@ const resolvers = {
   Subscription: {
     hi: {
       subscribe: () => {
-        return pubsub.asyncIterator(EVENT);
+        return pubsub.asyncIterator<string>(EVENT);
       },
       // we receive that string as `parent` and resolve the Hi object
-      resolve: parent => {
+      resolve: (parent: string) => {
         return {
           message: parent,
         };
@@ -43,7 +43,7 @@ const resolvers = {
   },
 };
 
-module.exports = {
+export default {
   typeDefs,
   resolvers,
 };

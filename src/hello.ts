@@ -1,5 +1,5 @@
-const { gql } = require('apollo-server');
-const pubsub = require('./pubsub');
+import { gql } from 'apollo-server';
+import pubsub from './pubsub';
 
 const EVENT = 'Hello';
 
@@ -19,7 +19,7 @@ const typeDefs = gql`
 
 const resolvers = {
   Mutation: {
-    hello: (_, { name }) => {
+    hello: (_: any, { name }: { name: string }) => {
       const message = `Hello ${name}`;
 
       // Emits Hello object
@@ -42,7 +42,7 @@ const resolvers = {
   },
 };
 
-module.exports = {
+export default {
   typeDefs,
   resolvers,
 };

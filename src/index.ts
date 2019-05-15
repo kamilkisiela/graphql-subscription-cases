@@ -1,6 +1,6 @@
-const { ApolloServer } = require('apollo-server');
-const { merge } = require('lodash');
-const modules = require('./modules');
+import { ApolloServer } from 'apollo-server';
+import { merge } from 'lodash';
+import modules from './modules';
 
 const server = new ApolloServer({
   typeDefs: modules.map(m => m.typeDefs),
@@ -13,6 +13,10 @@ const server = new ApolloServer({
   },
 });
 
-server.listen().then(({ url }) => {
+async function main() {
+  const { url } = await server.listen();
+  
   console.log(`🚀 Server ready at ${url}`);
-});
+}
+
+main();

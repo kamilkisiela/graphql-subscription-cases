@@ -1,9 +1,9 @@
-const { gql } = require('apollo-server');
-const hi = require('./hi');
-const hello = require('./hello');
-const hey = require('./hey');
+import { gql } from 'apollo-server';
+import hi from './hi';
+import hello from './hello';
+import hey from './hey';
 
-module.exports = [
+export default [
   {
     typeDefs: gql`
       type Query {
@@ -18,8 +18,9 @@ module.exports = [
         _dummy: Boolean
       }
     `,
+    resolvers: {},
   },
   hi,
   hello,
-  hey
+  hey,
 ];
